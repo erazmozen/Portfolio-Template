@@ -1,0 +1,69 @@
+/*  Dugme za otvaranje menija  */
+.menu-open-btn {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  padding: 1rem;
+  font-size: 2rem;
+  z-index: 1;
+  transition: all .25s ease-in;
+}
+
+/*  Mali padding za dugme  */
+.menu-open-btn span {
+  padding-left: 1rem;
+}
+
+/*  Menu, ne bi trebalo da bude mnogo problema sa ovom metodom, medjutim bolje je
+preci na translate  */
+.menu {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: darkgray;
+  width: 100%;
+  height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: .3s height ease;
+}
+
+/*  Top margin za prvi element menu liste  */
+.menu>ul:first-child {
+  margin-top: 1rem;
+}
+
+/*  Ubijanje stajlinga za liste  */
+.menu li {
+  list-style-type: none;
+  padding: .2rem;
+}
+
+/*  Menu linkovi
+/ Color pretvoriti u varable za foreground  */
+.menu a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.4rem;
+  display: block;
+  padding: .3rem;
+  text-align: center;
+}
+
+/*  Menu item  */
+.menu ul {
+  width: 90%;
+  border-radius: 10px;
+}
+
+/*  Menu item hover  */
+.menu ul:hover {
+  background-color: rgba(0, 0, 0, 0.18);
+}
+
+/*  Menu toggle / mozda bude menjano */
+.menu-toggle {
+  height: 230px;
+  padding: 0;
+}

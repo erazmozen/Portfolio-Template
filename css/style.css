@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,800;0,900;1,700&display=swap');
+
+/*
+2. Formatirati tekst
+*/
+/*  color varables  */
+:root {
+  --background-color: #424242;
+  --foreground-color: #fff;
+  --foreground-color-alt: #000;
+  --left-bg-color: #212121;
+  --right-bg-color: #bdb9b7;
+  --container-color: #efebe9;
+  --section-color: #fff;
+  --section-border-radius: 14px;
+}
+
+/*  reset  */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+*, html {
+  scroll-behavior: smooth !important;
+}
+
+/*  pozicija, visina i sirina podesena radi pozicioniranja elemenata u main divu  */
+html, body, .main {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+}
+
+/*  main je canvas na kom mozemo da pozicioniramo elemente, animirano itd..  */
+.main {
+  display: flex;
+  background-color: var(--container-color);
+  color: var(--foreground-color);
+}
+
+/*  Reset boje linkova  */
+.main a {
+  color: var(--foreground-color);
+}
+
+/*  Sidebar je zalepljen za prvu (levu) polovinu glavne stranice, definisem ga
+sirine 65px. transform ga pomera za isto toliko, tako da se ne vidi kada se
+stranica ucita  */
+.sidebar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 65px;
+  height: 100%;
+  background-color: #212121;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  transform: translate(65px, 0px);
+  transition: transform .25s ease-in;
+}
+
+/*  Ikonice za sidebar  */
+.sidebar i, .sidebar a {
+  text-align: center;
+  font-size: 2rem;
+}
+
+/*  Grupa za flex iteme u koloni / ima jos nkih koje bih mozda mogao ubacim  */
+.about-wrapper, .left, .right {
+  display: flex;
+  flex-direction: column;
+}
+
+/*  Pozicija radi pozicioniranja  */
+.left, .right {
+  position: relative;
+}
+
+/*  Landing section za sajt, prvi se prikazuje i sakriva klikom na CTA dugme
+ili strelicom u uglu  */
+.left {
+  background-color: var(--left-bg-color);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  overflow: hidden;
+  align-items: center;
+  /*border-radius: 0 12px 12px 0;*/
+  border-radius: 0;
+  transition: .3s all ease;
+  z-index: 2;
+}
+
+/*  Mali avatar na vrhu sidebar-a
+/ napraviti variable za "../src/gallery/Avatar.jpeg"  */
+.avatar-sidebar {
+  position: absolute;
+  background-image: url("../src/gallery/Avatar.jpeg");
+  background-position: center;
+  background-size: cover;
+  height: 40px;
+  width: 40px;
+  border-radius: 30%;
+  top: 13px;
+}
+
+/*  Div unutar Landing Section-a koji drzi njegov content  */
+#left-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  transition: .3s all ease;
+}
+
+/*  Dugme za zatvaranje Landing Section-a  */
+.left-close-btn {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  font-size: 2rem;
+  z-index: 10;
+  transition: transform .4s ease;
+}
+
+/*  Veliki avatar u Landing Section-u  */
+.left-avatar {
+  position: relative;
+  background-color: #fff;
+  margin-top: 3vh;
+  width: 220px;
+  height: 220px;
+  background-image: url("../src/gallery/Avatar.jpeg");
+  background-position: center;
+  background-size: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+/*  Namestiti traslate i onda obrisati komentar
+
+  */
+.left p {
+  min-width: 300px;
+  max-width: 570px;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+/*  Drzi tekst, soctial section i CTA drugme  */
+.about-wrapper {
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  flex-wrap: nowrap;
+}
+
+/*  Soctial section za Landing section  */
+.social {
+  font-size: 2rem;
+  margin-top: .6rem;
+}
+
+/*  Social section za sidebar  */
+.social-sidebar {
+  display: flex;
+  flex-direction: column;
+  padding: .2rem;
+  font-size: 1.6rem;
+}
+
+/*  CTA dugme / zameniti naziv u CTA button  */
+.saznaj-vise {
+  padding: .6rem 1rem;
+  font-size: 1rem;
+  margin: 1.4rem;
+  border-radius: 20px;
+  background-color: gray;
+}
+
+/*  Section za ostatak teksta, slike i ostalo
+/ Treba pogledati mlao bolje za raspored svih sekcija  */
+.right {
+  flex: 1;
+  margin-left: 65px;
+  overflow-y: scroll;
+}
+
+@media only screen and (min-width: 768px) {
+  .right {
+    align-items: center;
+  }
+}
+
+/*  Klasa za flip dugmica  */
+.rotate {
+  transform: rotate(180deg);
+  transition: transform .4s ease;
+}
+
+/*  Klasa za sakrivanje Landing Section-a  */
+.right-expand {
+  border-radius: 0 12px 12px 0;
+  transform: translate(calc(-100% + 65px), 0px);
+}
+
+/*  Klasa za pokazivanje sidebar-a  */
+.sidebar-toggle {
+  transform: translate(0px, 0px);
+  transition: transform .25s ease-in;
+}
+
+.container {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text, .column-head, .header {
+  font-size: 1rem;
+  margin: .4rem .3rem;
+  color: var(--foreground-color-alt);
+  font-weight: 600;
+  padding: 1.7rem 2rem;
+  border-radius: var(--section-border-radius);
+  background: var(--section-color);
+}
+
+.text {
+  text-indent: 1rem;
+}
+
+.header {
+  width: 100%;
+}
+
+.header-link-holder {
+  padding: 1rem;
+}
+
+.header i, .header a {
+  padding: 0 .2rem;
+  color: var(--foreground-color-alt);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  flex: 50%;
+  max-width: 50%;
+  padding: 0 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.column1 {
+  max-width: 41.28%;
+}
+
+.column-head {
+  text-align: center;
+  margin-top: 2.3rem;
+  margin-bottom: 1rem;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+  border-radius: var(--section-border-radius);
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 768px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+@media only screen and (min-width: 1100px) {
+  .gallery {
+    display: flex;
+    justify-content: center;
+  }
+
+  .container {
+    max-width: 840px;
+    padding-top: 3rem;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (min-width: 1100px) {
+  .left {
+    width: 440px;
+    min-width: 440px;
+  }
+
+  .right {
+    width: 100%;
+    padding-left: 400px;
+    flex: 1;
+
+  }
+
+  .right-full {
+    width: 100%;
+    position: absolute;
+  }
+
+  .testexpand {
+    padding-left: 0;
+  }
+}
