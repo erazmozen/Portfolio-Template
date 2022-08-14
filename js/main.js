@@ -38,3 +38,6 @@ function toggleContact() {
   var element = document.getElementById("contact");
   element.classList.toggle("expand-contact");
 }
+
+// Image fullscreen
+
