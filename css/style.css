@@ -48,6 +48,21 @@ html, body, .main {
   color: var(--foreground-color);
 }
 
+.contact-popup {
+  display: flex;
+  flex-direction: column;
+  z-index: 30000;
+  color: #000;
+  height: 0;
+  width: 100%;
+  overflow: hidden;
+  transition: all .1s ease-out;
+}
+
+.expand-contact {
+  height: 50px;
+}
+
 /*  Sidebar je zalepljen za prvu (levu) polovinu glavne stranice, definisem ga
 sirine 65px. transform ga pomera za isto toliko, tako da se ne vidi kada se
 stranica ucita  */
@@ -244,6 +259,7 @@ ili strelicom u uglu  */
 
 .header {
   width: 100%;
+  transition: all .3 ease;
 }
 
 .header-link-holder {

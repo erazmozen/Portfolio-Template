@@ -31,14 +31,10 @@ function expandRight() {
       x.classList.remove("menu-toggle")
     } else {}
   }
-
 }
 
-//  Proba za bolju implementaciju korigovanja sirine desnog dela
-//
-//var eleft = document.getElementById("left");
-//var eright = document.getElementById("right");
-//var eleftcheck = eleft.classList.contains("right-expand");
-//console.log(eleft);
-//console.log(eright);
-//console.log(eleftcheck);
+// Contact toggle
+function toggleContact() {
+  var element = document.getElementById("contact");
+  element.classList.toggle("expand-contact");
+}
