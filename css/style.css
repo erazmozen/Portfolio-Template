@@ -280,16 +280,12 @@ ili strelicom u uglu  */
 
 /* Create four equal columns that sits next to each other */
 .column {
-  flex: 50%;
-  max-width: 50%;
+  width: 50%;
   padding: 0 4px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.column1 {
-  max-width: 41.28%;
+  flex-grow: 1;
 }
 
 .column-head {
@@ -298,23 +294,67 @@ ili strelicom u uglu  */
   margin-bottom: 1rem;
 }
 
-.column img {
-  margin-top: 8px;
-  vertical-align: middle;
-  width: 100%;
-  border-radius: var(--section-border-radius);
+.gallery {
+  width: 80%;
 }
 
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+.acrylic, .graphite {
+  position: relative;
+  margin-top: 8px;
+  vertical-align: middle;
+  height: 430px;
+  border-radius: var(--section-border-radius);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.a1 {
+  background-image: url("../src/gallery/abstract01.jpeg");
+}
+
+.a2 {
+  background-image: url("../src/gallery/abstract02.jpeg");
+}
+
+.a3 {
+  background-image: url("../src/gallery/abstract03.jpeg");
+}
+
+.a4 {
+  background-image: url("../src/gallery/abstract04.jpeg");
+}
+
+.g1 {
+  background-image: url("../src/gallery/graphite01-cut.jpeg");
+}
+
+.g2 {
+  background-image: url("../src/gallery/graphite02-cut.jpeg");
+}
+
+.g3 {
+  background-image: url("../src/gallery/graphite03-cut.jpeg");
+}
+
+.g4 {
+  background-image: url("../src/gallery/graphite04-cut.jpeg");
+}
+
+/* Kada je ispod */
 @media screen and (max-width: 768px) {
   .column {
     flex: 100%;
     max-width: 100%;
+    flex-grow: 1;
   }
+
 }
 
+/* Kada je preko  */
 @media only screen and (min-width: 1100px) {
   .gallery {
+    width: 80%;
     display: flex;
     justify-content: center;
   }
@@ -326,9 +366,11 @@ ili strelicom u uglu  */
     flex-grow: 1;
     flex-direction: column;
   }
-}
 
-@media only screen and (min-width: 1100px) {
+  .row {
+    width: 100%;
+  }
+
   .left {
     width: 440px;
     min-width: 440px;
@@ -349,4 +391,5 @@ ili strelicom u uglu  */
   .testexpand {
     padding-left: 0;
   }
+
 }
