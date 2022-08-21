@@ -1,6 +1,6 @@
 // Soft loader
-window.onload = function() {
-  setTimeout(function() {
+window.onload = function () {
+  setTimeout(function () {
     document.getElementById("loader").remove();
   }, 1000);
 };
@@ -26,10 +26,12 @@ function expandRight() {
   var element = document.getElementById("right");
   element.classList.toggle("testexpand");
 
-  let x = document.getElementById("menu"); {
+  let x = document.getElementById("menu");
+  {
     if (x.classList.contains("menu-toggle")) {
-      x.classList.remove("menu-toggle")
-    } else {}
+      x.classList.remove("menu-toggle");
+    } else {
+    }
   }
 }
 
@@ -39,5 +41,13 @@ function toggleContact() {
   element.classList.toggle("expand-contact");
 }
 
-// Image fullscreen
+// Image Fullscreen
+function FullView(ImgLink) {
+  console.log(ImgLink);
+  document.getElementById("fullscreen-img").src = ImgLink;
+  document.getElementById("fullscreen").style.display = "flex";
+}
 
+function CloseFullView() {
+  document.getElementById("fullscreen").style.display = "none";
+}
