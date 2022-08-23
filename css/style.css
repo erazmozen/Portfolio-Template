@@ -210,6 +210,7 @@ ili strelicom u uglu  */
   margin: 1.4rem;
   border-radius: 20px;
   background-color: gray;
+  cursor: pointer;
 }
 
 /*  Section za ostatak teksta, slike i ostalo
@@ -242,7 +243,7 @@ ili strelicom u uglu  */
 
 }
 
-/*  Klasa za flip dugmica  */
+/*  Klasa za flip dugme  */
 .rotate {
   transform: rotate(180deg);
   transition: transform .4s ease;
@@ -316,7 +317,6 @@ ili strelicom u uglu  */
 }
 
 @media only screen and (min-width: 1100px) {
-
   .row {
     width: 100%;
   }
@@ -336,7 +336,7 @@ ili strelicom u uglu  */
   position: relative;
   margin-top: 8px;
   vertical-align: middle;
-  max-height: 430px;
+  max-height: 530px;
   border-radius: var(--section-border-radius);
   background-position: center;
   background-size: cover;
@@ -404,10 +404,30 @@ ili strelicom u uglu  */
   max-width: 80%;
 }
 
+.fullscreen-header {
+  width: 70%;
+  position: absolute;
+  top: 120px;
+  display: flex;
+  justify-content: center;
+}
+
+.fullscreen-header div {
+  background-color: rgba(0, 0, 0, .5);
+  width: 50px;
+  height: 50px;
+  padding: 1.3rem;
+  margin: 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+} 
+
 #fullscreen i {
-  color: #bdb9b7;
-  font-size: 2rem;
-  padding: 2rem;
+  color: white;
+  font-size: 1.3rem;
+  cursor: pointer;
 }
 
 .footer {

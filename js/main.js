@@ -51,3 +51,5 @@ function FullView(ImgLink) {
 function CloseFullView() {
   document.getElementById("fullscreen").style.display = "none";
 }
+// Theme colors changer
+// document.documentElement.style.setProperty("--container-color", "black");
