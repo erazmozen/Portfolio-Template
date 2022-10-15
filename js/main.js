@@ -43,7 +43,6 @@ function toggleContact() {
 
 // Image Fullscreen
 function FullView(ImgLink) {
-  console.log(ImgLink);
   document.getElementById("fullscreen-img").src = ImgLink;
   document.getElementById("fullscreen").style.display = "flex";
 }
