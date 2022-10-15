@@ -37,6 +37,13 @@
 
     <!-- Main -->
     <div class="main" id="main">
+      <!-- Image modal -->
+      <div class="fullscreen" id="fullscreen">
+        <i class="fas fa-times" id="close-btn" onclick="CloseFullView()"></i>
+        <div class="fullscreen-image">
+          <img id="fullscreen-img" />
+        </div>
+      </div>
       <!-- Landing Section (scrolls left) -->
       <div class="left" id="left">
         <!-- Menu open and landing section close buttons -->
@@ -252,20 +259,6 @@
                   alt="g4"
                   onclick="FullView(this.src)"
                 />
-              </div>
-            </div>
-
-            <div id="fullscreen">
-              <img id="fullscreen-img" />
-              <div class="fullscreen-header">
-                <div><i class="fas fa-info"></i></div>
-                <div>
-                  <i
-                    class="fas fa-times"
-                    id="close-btn"
-                    onclick="CloseFullView()"
-                  ></i>
-                </div>
               </div>
             </div>
           </div>

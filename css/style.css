@@ -1,8 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,800;0,900;1,700&display=swap");
 
-/*
-2. Formatirati tekst
-*/
 /*  color varables  */
 :root {
   --background-color: #424242;
@@ -27,7 +24,7 @@ html {
   scroll-behavior: smooth !important;
 }
 
-/*  pozicija, visina i sirina podesena radi pozicioniranja elemenata u main divu  */
+/*  Pozicioniranje  */
 html,
 body,
 .main {
@@ -39,18 +36,18 @@ body,
   font-size: 16px;
 }
 
-/*  main je canvas na kom mozemo da pozicioniramo elemente, animirano itd..  */
+/*  Main drzi sve  */
 .main {
   display: flex;
   background-color: var(--container-color);
   color: var(--foreground-color);
 }
 
-/*  Reset boje linkova  */
 .main a {
   color: var(--foreground-color);
 }
 
+/* Mali kontakt slideout */
 .contact-popup {
   display: flex;
   flex-direction: column;
@@ -66,9 +63,7 @@ body,
   height: 50px;
 }
 
-/*  Sidebar je zalepljen za prvu (levu) polovinu glavne stranice, definisem ga
-sirine 65px. transform ga pomera za isto toliko, tako da se ne vidi kada se
-stranica ucita  */
+/*  Sidebar taskbar (ikonice)  */
 .sidebar {
   position: absolute;
   right: 0;
@@ -85,14 +80,25 @@ stranica ucita  */
   transition: transform 0.25s ease-in;
 }
 
-/*  Ikonice za sidebar  */
+/*  Mali avatar na vrhu sidebar-a */
+.avatar-sidebar {
+  position: absolute;
+  background-image: url("../src/gallery/Avatar.jpeg");
+  background-position: center;
+  background-size: cover;
+  height: 40px;
+  width: 40px;
+  border-radius: 30%;
+  top: 13px;
+}
+
 .sidebar i,
 .sidebar a {
   text-align: center;
   font-size: 2rem;
 }
 
-/*  Grupa za flex iteme u koloni / ima jos nkih koje bih mozda mogao ubacim  */
+/*  Flex razno  */
 .about-wrapper,
 .left,
 .right {
@@ -100,14 +106,12 @@ stranica ucita  */
   flex-direction: column;
 }
 
-/*  Pozicija radi pozicioniranja  */
 .left,
 .right {
   position: relative;
 }
 
-/*  Landing section za sajt, prvi se prikazuje i sakriva klikom na CTA dugme
-ili strelicom u uglu  */
+/*  left je full sidebar zapravo  */
 .left {
   background-color: var(--left-bg-color);
   position: absolute;
@@ -129,17 +133,19 @@ ili strelicom u uglu  */
   }
 }
 
-/*  Mali avatar na vrhu sidebar-a
-/ napraviti variable za "../src/gallery/Avatar.jpeg"  */
-.avatar-sidebar {
-  position: absolute;
+/*  Veliki avatar u Landing Section-u  */
+.left-avatar {
+  position: relative;
+  background-color: #fff;
+  margin-top: 12vh;
+  width: 220px;
+  height: 220px;
   background-image: url("../src/gallery/Avatar.jpeg");
   background-position: center;
-  background-size: cover;
-  height: 40px;
-  width: 40px;
-  border-radius: 30%;
-  top: 13px;
+  background-size: 115%;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: height, width 0.08s ease-out;
 }
 
 /*  Div unutar Landing Section-a koji drzi njegov content  */
@@ -163,23 +169,6 @@ ili strelicom u uglu  */
   transition: transform 0.4s ease;
 }
 
-/*  Veliki avatar u Landing Section-u  */
-.left-avatar {
-  position: relative;
-  background-color: #fff;
-  margin-top: 12vh;
-  width: 220px;
-  height: 220px;
-  background-image: url("../src/gallery/Avatar.jpeg");
-  background-position: center;
-  background-size: 115%;
-  border-radius: 50%;
-  overflow: hidden;
-  transition: height, width 0.08s ease-out;
-}
-
-/*  Namestiti traslate i onda obrisati komentar
-
 /*  Drzi tekst, soctial section i CTA drugme  */
 .about-wrapper {
   justify-content: center;
@@ -194,7 +183,7 @@ ili strelicom u uglu  */
   text-align: justify;
 }
 
-/*  Soctial section za Landing section  */
+/*  Soctial ikonice za Landing section  */
 .social {
   font-size: 2rem;
   margin-top: 0.6rem;
@@ -218,8 +207,7 @@ ili strelicom u uglu  */
   cursor: pointer;
 }
 
-/*  Section za ostatak teksta, slike i ostalo
-/ Treba pogledati mlao bolje za raspored svih sekcija  */
+/*  Right section  */
 .right {
   flex: 1;
   margin-left: 65px;
@@ -269,6 +257,12 @@ ili strelicom u uglu  */
   flex-direction: column;
   align-items: center;
   min-width: 300px;
+}
+
+@media only screen and (min-width: 700px) {
+  .container {
+    max-width: 90%;
+  }
 }
 
 @media only screen and (min-width: 1100px) {
@@ -326,7 +320,7 @@ ili strelicom u uglu  */
   }
 }
 
-/* Create four equal columns that sits next to each other */
+/* Kolone za galeriju */
 .column {
   width: 50%;
   padding: 0 4px;
@@ -338,9 +332,9 @@ ili strelicom u uglu  */
 
 .column img {
   position: relative;
-  margin-top: 8px;
+  margin-top: 10px;
   vertical-align: middle;
-  max-height: 530px;
+  max-height: 930px;
   border-radius: var(--section-border-radius);
   background-position: center;
   background-size: cover;
@@ -386,49 +380,53 @@ ili strelicom u uglu  */
   }
 }
 
-#fullscreen {
-  display: none;
-  position: fixed;
+/* Image modal */
+
+.fullscreen {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.85);
+  height: 100vh;
+  width: 100vw;
   top: 0;
   left: 0;
+  backdrop-filter: blur(4px);
+  z-index: 100000000000;
+}
+
+.fullscreen-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 100000;
+  display: flex;
+  flex-grow: 1;
 }
 
-#fullscreen-img {
+.fullscreen-image img {
   max-height: 80%;
-  max-width: 80%;
+  border-radius: 10px;
 }
 
-.fullscreen-header {
-  width: 70%;
-  position: absolute;
-  top: 120px;
-  display: flex;
-  justify-content: center;
-}
-
-.fullscreen-header div {
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 50px;
-  height: 50px;
-  padding: 1.3rem;
-  margin: 0 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
+@media screen and (max-width: 768px) {
+  .fullscreen-image img {
+    max-height: auto;
+    max-width: 80%;
+  }
 }
 
 #fullscreen i {
   color: white;
   font-size: 1.3rem;
   cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 2rem;
+  background: #000;
+  padding: 1rem;
+  border-radius: 25%;
+  z-index: 100000000001;
 }
 
 .footer {
