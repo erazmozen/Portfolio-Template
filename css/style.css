@@ -383,6 +383,7 @@ body,
 /* Image modal */
 
 .fullscreen {
+  display: none;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.85);
   height: 100vh;
