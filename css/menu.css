@@ -6,7 +6,7 @@
   padding: 1rem;
   font-size: 2rem;
   z-index: 100;
-  transition: all .25s ease-in;
+  transition: all 0.25s ease-in;
 }
 
 /*  Mali padding za dugme  */
@@ -22,34 +22,32 @@ preci na translate  */
   left: 0;
   width: 100%;
   height: 0;
-  background-color: #212121;
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow: hidden;
   z-index: 99;
-  transition: .3s height ease;
+  transition: 0.3s height ease;
 }
 
 /*  Top margin za prvi element menu liste  */
-.menu>ul:first-child {
+.menu > ul:first-child {
   margin-top: 1rem;
 }
 
 /*  Ubijanje stajlinga za liste  */
 .menu li {
   list-style-type: none;
-  padding: .2rem;
+  padding: 0.2rem;
 }
 
 /*  Menu linkovi
 / Color pretvoriti u varable za foreground  */
 .menu a {
   text-decoration: none;
-  color: white;
   font-size: 1.4rem;
   display: block;
-  padding: .3rem;
+  padding: 0.3rem;
   text-align: center;
 }
 
