@@ -24,8 +24,14 @@ function expandRight() {
   toggleClass("left", "right-expand");
   toggleClass("left-close-btn", "rotate");
   toggleClass("right", "testexpand");
-  if (document.getElementById("menu").classList.contains("menu-toggle")) {
-    document.getElementById("menu").classList.remove("menu-toggle");
+  if (
+    document
+      .getElementById("menu")
+      .classList.contains("menu-toggle")
+  ) {
+    document
+      .getElementById("menu")
+      .classList.remove("menu-toggle");
   }
 }
 
@@ -37,9 +43,11 @@ function toggleContact() {
 // Image Fullscreen
 function FullView(ImgLink) {
   document.getElementById("fullscreen-img").src = ImgLink;
-  document.getElementById("fullscreen").style.display = "flex";
+  document.getElementById("fullscreen").style.display =
+    "flex";
 }
 
 function CloseFullView() {
-  document.getElementById("fullscreen").style.display = "none";
+  document.getElementById("fullscreen").style.display =
+    "none";
 }
