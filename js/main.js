@@ -5,40 +5,33 @@ window.onload = function () {
   }, 1000);
 };
 
+// Toggle function
+function toggleClass(base, toggle) {
+  const e = document.getElementById(base);
+  e.classList.toggle(toggle);
+}
+
 // Menu toggle
 function toggleMenu() {
-  var element = document.getElementById("menu");
-  element.classList.toggle("menu-toggle");
-  var element = document.getElementById("menu-toggle");
-  element.classList.toggle("rotate");
+  toggleClass("menu", "menu-toggle");
+  toggleClass("menu-toggle", "rotate");
 }
 
 // Sidebar toggle
 function expandRight() {
-  var element = document.getElementById("left-content");
-  element.classList.toggle("left-toggle");
-  var element = document.getElementById("sidebar");
-  element.classList.toggle("sidebar-toggle");
-  var element = document.getElementById("left");
-  element.classList.toggle("right-expand");
-  var element = document.getElementById("left-close-btn");
-  element.classList.toggle("rotate");
-  var element = document.getElementById("right");
-  element.classList.toggle("testexpand");
-
-  let x = document.getElementById("menu");
-  {
-    if (x.classList.contains("menu-toggle")) {
-      x.classList.remove("menu-toggle");
-    } else {
-    }
+  toggleClass("left-content", "left-toggle");
+  toggleClass("sidebar", "sidebar-toggle");
+  toggleClass("left", "right-expand");
+  toggleClass("left-close-btn", "rotate");
+  toggleClass("right", "testexpand");
+  if (document.getElementById("menu").classList.contains("menu-toggle")) {
+    document.getElementById("menu").classList.remove("menu-toggle");
   }
 }
 
 // Contact toggle
 function toggleContact() {
-  var element = document.getElementById("contact");
-  element.classList.toggle("expand-contact");
+  toggleClass("contact", "expand-contact");
 }
 
 // Image Fullscreen
@@ -50,5 +43,3 @@ function FullView(ImgLink) {
 function CloseFullView() {
   document.getElementById("fullscreen").style.display = "none";
 }
-// Theme colors changer
-// document.documentElement.style.setProperty("--container-color", "black");
